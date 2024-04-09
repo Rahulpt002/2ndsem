@@ -1,0 +1,1 @@
+the exists operator returns true if the sub querry returns one or more 
