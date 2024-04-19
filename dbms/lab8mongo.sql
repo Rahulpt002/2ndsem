@@ -213,3 +213,8 @@ db.niba.find({name:{$regex:"s"}})
 { "_id" : ObjectId("662228ae911c633e6ec27878"), "name" : "sinu" }
 { "_id" : ObjectId("66222a97d5c009723210e51f"), "name" : "sharath", "age" : 32 }
 { "_id" : ObjectId("66222ab7d5c009723210e521"), "name" : "sonu", "age" : 27 }
+
+db.niba.find({name:{$regex:/ma/}})
+{ "_id" : ObjectId("66222884911c633e6ec27875"), "name" : "maya" }
+{ "_id" : ObjectId("66222aa8d5c009723210e520"), "name" : "manu", "age" : 23 }
+{ "_id" : ObjectId("66223c37d5c009723210e527"), "name" : "mallu", "age" : 35 }
