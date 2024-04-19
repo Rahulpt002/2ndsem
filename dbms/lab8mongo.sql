@@ -206,3 +206,10 @@ Type "it" for more
 { "_id" : ObjectId("66222835911c633e6ec27872"), "name" : "haya" }
 { "_id" : ObjectId("6622282f911c633e6ec27871"), "name" : "hadi" }
 { "_id" : ObjectId("66222ac5d5c009723210e522"), "name" : "finu", "age" : 25 }
+db.niba.find({name:{$regex:"s"}})
+{ "_id" : ObjectId("66222802911c633e6ec27870"), "name" : "sana" }
+{ "_id" : ObjectId("6622283c911c633e6ec27873"), "name" : "saya" }
+{ "_id" : ObjectId("662228a1911c633e6ec27877"), "name" : "sona" }
+{ "_id" : ObjectId("662228ae911c633e6ec27878"), "name" : "sinu" }
+{ "_id" : ObjectId("66222a97d5c009723210e51f"), "name" : "sharath", "age" : 32 }
+{ "_id" : ObjectId("66222ab7d5c009723210e521"), "name" : "sonu", "age" : 27 }
