@@ -1,0 +1,334 @@
+mysql: [Warning] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe: ignoring option '--no-beep' due to invalid value ''.
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.36 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create databse sample;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databse sample' at line 1
+mysql> create database sample;
+Query OK, 1 row affected (0.34 sec)
+
+mysql> use sample;
+Database changed
+mysql> create table employee(ssn int,name varchar(20),dept varchar(20),project name varchar(20),project location(20));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'name varchar(20),project location(20))' at line 1
+mysql> create table employee(ssn int,name varchar(20),dept varchar(20),project_name varchar(20),project_location(20));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(20))' at line 1
+mysql> create table employee(ssn int,name varchar(20),dept varchar(20),project_name varchar(20),project_location varchar(20));
+Query OK, 0 rows affected (1.19 sec)
+
+mysql> select * from employee
+    -> ;
+Empty set (0.08 sec)
+
+mysql> delete table employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table employee' at line 1
+mysql> drop table employee;
+Query OK, 0 rows affected (0.33 sec)
+
+mysql> create table employee(ssn varchar(10),name varchar(20),department varchar(20),project_name varchar(20),project_location varchar(20));
+Query OK, 0 rows affected (0.30 sec)
+
+mysql> insert into employee values('A01','Kavya','Mca','Antiragging','Kozhikode');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> selet * from employee
+    -> selet * from employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selet * from employee
+selet * from employee' at line 1
+mysql> selet * from employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selet * from employee' at line 1
+mysql> select * from employee;
++------+-------+------------+--------------+------------------+
+| ssn  | name  | department | project_name | project_location |
++------+-------+------------+--------------+------------------+
+| A01  | Kavya | Mca        | Antiragging  | Kozhikode        |
++------+-------+------------+--------------+------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into employee values('A02','Anusree','Bca','Antiragging','Kozhikode');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into employee values('A03','theertha','Bca','Antiragging','Kozhikode');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into employee values('A04','Kiran','Mech','Solarwaterheater','Kannur');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into employee values('A05','Rohith','Mech','Solarwaterheater','Kozhikode');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employee values('A06','Nihal','Finance','Mutualfund','Kozhikode');
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into employee values('A07','Aman','Marketing','public relations and international marketing','Kozhikode');
+ERROR 1406 (22001): Data too long for column 'project_name' at row 1
+mysql> insert into employee values('A07','Aman','Marketing','publicrelationandinternationalmarketing','Kozhikode');
+ERROR 1406 (22001): Data too long for column 'project_name' at row 1
+mysql> insert into employee values('A07','Aman','Marketing','publicrelation','Kozhikode');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into employee values('A08','Adhith','Marketing','inertnationalmarketing','Malappuram');
+ERROR 1406 (22001): Data too long for column 'project_name' at row 1
+mysql> insert into employee values('A08','Adhith','Marketing','innnmarketing','Malappuram');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into employee values('A09','Adwaith','Finance','fund','delhi');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employee values('A10','Adhii','Finance','fund','pune');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from employee;
++------+----------+------------+------------------+------------------+
+| ssn  | name     | department | project_name     | project_location |
++------+----------+------------+------------------+------------------+
+| A01  | Kavya    | Mca        | Antiragging      | Kozhikode        |
+| A02  | Anusree  | Bca        | Antiragging      | Kozhikode        |
+| A03  | theertha | Bca        | Antiragging      | Kozhikode        |
+| A04  | Kiran    | Mech       | Solarwaterheater | Kannur           |
+| A05  | Rohith   | Mech       | Solarwaterheater | Kozhikode        |
+| A06  | Nihal    | Finance    | Mutualfund       | Kozhikode        |
+| A07  | Aman     | Marketing  | publicrelation   | Kozhikode        |
+| A08  | Adhith   | Marketing  | innnmarketing    | Malappuram       |
+| A09  | Adwaith  | Finance    | fund             | delhi            |
+| A10  | Adhii    | Finance    | fund             | pune             |
++------+----------+------------+------------------+------------------+
+10 rows in set (0.00 sec)
+
+mysql> update employee set project_name
+    ->
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> update employee set project_name="development" where ssn="A10"
+    -> ;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+----------+------------+------------------+------------------+
+| ssn  | name     | department | project_name     | project_location |
++------+----------+------------+------------------+------------------+
+| A01  | Kavya    | Mca        | Antiragging      | Kozhikode        |
+| A02  | Anusree  | Bca        | Antiragging      | Kozhikode        |
+| A03  | theertha | Bca        | Antiragging      | Kozhikode        |
+| A04  | Kiran    | Mech       | Solarwaterheater | Kannur           |
+| A05  | Rohith   | Mech       | Solarwaterheater | Kozhikode        |
+| A06  | Nihal    | Finance    | Mutualfund       | Kozhikode        |
+| A07  | Aman     | Marketing  | publicrelation   | Kozhikode        |
+| A08  | Adhith   | Marketing  | innnmarketing    | Malappuram       |
+| A09  | Adwaith  | Finance    | fund             | delhi            |
+| A10  | Adhii    | Finance    | development      | pune             |
++------+----------+------------+------------------+------------------+
+10 rows in set (0.00 sec)
+
+mysql> update employee set department="hr" where ssn="A10";
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+----------+------------+------------------+------------------+
+| ssn  | name     | department | project_name     | project_location |
++------+----------+------------+------------------+------------------+
+| A01  | Kavya    | Mca        | Antiragging      | Kozhikode        |
+| A02  | Anusree  | Bca        | Antiragging      | Kozhikode        |
+| A03  | theertha | Bca        | Antiragging      | Kozhikode        |
+| A04  | Kiran    | Mech       | Solarwaterheater | Kannur           |
+| A05  | Rohith   | Mech       | Solarwaterheater | Kozhikode        |
+| A06  | Nihal    | Finance    | Mutualfund       | Kozhikode        |
+| A07  | Aman     | Marketing  | publicrelation   | Kozhikode        |
+| A08  | Adhith   | Marketing  | innnmarketing    | Malappuram       |
+| A09  | Adwaith  | Finance    | fund             | delhi            |
+| A10  | Adhii    | hr         | development      | pune             |
++------+----------+------------+------------------+------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from employee where department="hr"
+    -> ;
++------+-------+------------+--------------+------------------+
+| ssn  | name  | department | project_name | project_location |
++------+-------+------------+--------------+------------------+
+| A10  | Adhii | hr         | development  | pune             |
++------+-------+------------+--------------+------------------+
+1 row in set (0.01 sec)
+
+mysql> select * from employee where department="finance";
++------+---------+------------+--------------+------------------+
+| ssn  | name    | department | project_name | project_location |
++------+---------+------------+--------------+------------------+
+| A06  | Nihal   | Finance    | Mutualfund   | Kozhikode        |
+| A09  | Adwaith | Finance    | fund         | delhi            |
++------+---------+------------+--------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where project_location="delhi";
++------+---------+------------+--------------+------------------+
+| ssn  | name    | department | project_name | project_location |
++------+---------+------------+--------------+------------------+
+| A09  | Adwaith | Finance    | fund         | delhi            |
++------+---------+------------+--------------+------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee order by name;
++------+----------+------------+------------------+------------------+
+| ssn  | name     | department | project_name     | project_location |
++------+----------+------------+------------------+------------------+
+| A10  | Adhii    | hr         | development      | pune             |
+| A08  | Adhith   | Marketing  | innnmarketing    | Malappuram       |
+| A09  | Adwaith  | Finance    | fund             | delhi            |
+| A07  | Aman     | Marketing  | publicrelation   | Kozhikode        |
+| A02  | Anusree  | Bca        | Antiragging      | Kozhikode        |
+| A01  | Kavya    | Mca        | Antiragging      | Kozhikode        |
+| A04  | Kiran    | Mech       | Solarwaterheater | Kannur           |
+| A06  | Nihal    | Finance    | Mutualfund       | Kozhikode        |
+| A05  | Rohith   | Mech       | Solarwaterheater | Kozhikode        |
+| A03  | theertha | Bca        | Antiragging      | Kozhikode        |
++------+----------+------------+------------------+------------------+
+10 rows in set (0.04 sec)
+
+mysql> select * from employee order by name desc;
++------+----------+------------+------------------+------------------+
+| ssn  | name     | department | project_name     | project_location |
++------+----------+------------+------------------+------------------+
+| A03  | theertha | Bca        | Antiragging      | Kozhikode        |
+| A05  | Rohith   | Mech       | Solarwaterheater | Kozhikode        |
+| A06  | Nihal    | Finance    | Mutualfund       | Kozhikode        |
+| A04  | Kiran    | Mech       | Solarwaterheater | Kannur           |
+| A01  | Kavya    | Mca        | Antiragging      | Kozhikode        |
+| A02  | Anusree  | Bca        | Antiragging      | Kozhikode        |
+| A07  | Aman     | Marketing  | publicrelation   | Kozhikode        |
+| A09  | Adwaith  | Finance    | fund             | delhi            |
+| A08  | Adhith   | Marketing  | innnmarketing    | Malappuram       |
+| A10  | Adhii    | hr         | development      | pune             |
++------+----------+------------+------------------+------------------+
+10 rows in set (0.00 sec)
+
+mysql> alter table employee add Salary float(10,2);
+Query OK, 0 rows affected, 1 warning (0.31 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> select * from employee;
++------+----------+------------+------------------+------------------+--------+
+| ssn  | name     | department | project_name     | project_location | Salary |
++------+----------+------------+------------------+------------------+--------+
+| A01  | Kavya    | Mca        | Antiragging      | Kozhikode        |   NULL |
+| A02  | Anusree  | Bca        | Antiragging      | Kozhikode        |   NULL |
+| A03  | theertha | Bca        | Antiragging      | Kozhikode        |   NULL |
+| A04  | Kiran    | Mech       | Solarwaterheater | Kannur           |   NULL |
+| A05  | Rohith   | Mech       | Solarwaterheater | Kozhikode        |   NULL |
+| A06  | Nihal    | Finance    | Mutualfund       | Kozhikode        |   NULL |
+| A07  | Aman     | Marketing  | publicrelation   | Kozhikode        |   NULL |
+| A08  | Adhith   | Marketing  | innnmarketing    | Malappuram       |   NULL |
+| A09  | Adwaith  | Finance    | fund             | delhi            |   NULL |
+| A10  | Adhii    | hr         | development      | pune             |   NULL |
++------+----------+------------+------------------+------------------+--------+
+10 rows in set (0.00 sec)
+
+mysql> update employee set salary=22222 where ssn="A10";
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+----------+------------+------------------+------------------+----------+
+| ssn  | name     | department | project_name     | project_location | Salary   |
++------+----------+------------+------------------+------------------+----------+
+| A01  | Kavya    | Mca        | Antiragging      | Kozhikode        |     NULL |
+| A02  | Anusree  | Bca        | Antiragging      | Kozhikode        |     NULL |
+| A03  | theertha | Bca        | Antiragging      | Kozhikode        |     NULL |
+| A04  | Kiran    | Mech       | Solarwaterheater | Kannur           |     NULL |
+| A05  | Rohith   | Mech       | Solarwaterheater | Kozhikode        |     NULL |
+| A06  | Nihal    | Finance    | Mutualfund       | Kozhikode        |     NULL |
+| A07  | Aman     | Marketing  | publicrelation   | Kozhikode        |     NULL |
+| A08  | Adhith   | Marketing  | innnmarketing    | Malappuram       |     NULL |
+| A09  | Adwaith  | Finance    | fund             | delhi            |     NULL |
+| A10  | Adhii    | hr         | development      | pune             | 22222.00 |
++------+----------+------------+------------------+------------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> update employee set salary=22354 where ssn="A09";
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=15894 where ssn="A08";
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=56737 where ssn="A07";
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=17457 where ssn="A06";
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=74566 where ssn="A05";
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=34567 where ssn="A04";
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=28465 where ssn="A03";
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=53930 where ssn="A02";
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set salary=23457 where ssn="A01";
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++------+----------+------------+------------------+------------------+----------+
+| ssn  | name     | department | project_name     | project_location | Salary   |
++------+----------+------------+------------------+------------------+----------+
+| A01  | Kavya    | Mca        | Antiragging      | Kozhikode        | 23457.00 |
+| A02  | Anusree  | Bca        | Antiragging      | Kozhikode        | 53930.00 |
+| A03  | theertha | Bca        | Antiragging      | Kozhikode        | 28465.00 |
+| A04  | Kiran    | Mech       | Solarwaterheater | Kannur           | 34567.00 |
+| A05  | Rohith   | Mech       | Solarwaterheater | Kozhikode        | 74566.00 |
+| A06  | Nihal    | Finance    | Mutualfund       | Kozhikode        | 17457.00 |
+| A07  | Aman     | Marketing  | publicrelation   | Kozhikode        | 56737.00 |
+| A08  | Adhith   | Marketing  | innnmarketing    | Malappuram       | 15894.00 |
+| A09  | Adwaith  | Finance    | fund             | delhi            | 22354.00 |
+| A10  | Adhii    | hr         | development      | pune             | 22222.00 |
++------+----------+------------+------------------+------------------+----------+
+10 rows in set (0.00 sec)
+
+mysql>  select avg(salary) from employee;
++--------------+
+| avg(salary)  |
++--------------+
+| 34964.900000 |
++--------------+
+1 row in set (0.03 sec)
+
+mysql>  select min(salary) from employee;
++-------------+
+| min(salary) |
++-------------+
+|    15894.00 |
++-------------+
+1 row in set (0.02 sec)
+
+mysql>  select max(salary) from employee;
++-------------+
+| max(salary) |
++-------------+
+|    74566.00 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql>

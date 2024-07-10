@@ -1,0 +1,29 @@
+> db.new.createIndex({name:-1})
+{
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
+> db.new.getIndexes()
+[
+        {
+                "v" : 2,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "name" : -1
+                },
+                "name" : "name_-1"
+        }
+]
+> db.new.dropIndex({name:-1})
+{ "nIndexesWas" : 2, "ok" : 1 }
+> db.new.getIndexes()
+[ { "v" : 2, "key" : { "_id" : 1 }, "name" : "_id_" } ]
+>

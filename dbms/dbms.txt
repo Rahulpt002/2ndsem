@@ -1,0 +1,358 @@
+mysql: [Warning] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe: ignoring option '--no-beep' due to invalid value ''.
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.19 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database sample;
+Query OK, 1 row affected (0.36 sec)
+
+mysql> use sample;
+Database changed
+mysql> create table student;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> create table student(id int,name varchar(20));
+Query OK, 0 rows affected (1.09 sec)
+
+mysql> insert into student values(1,"kavya");
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into student values(2,"theertha");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into student values(2,"anusree");
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into student values(3,"anusree");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into student values(4,"anu");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into student values(5,"robin zakaria");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into student values(6,"begam hazrath mehal");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into student values(7,"kichu");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into student values(8,"sree");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into student values(9,"hari");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into student values(10,"rohith");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from student;
++------+---------------------+
+| id   | name                |
++------+---------------------+
+|    1 | kavya               |
+|    2 | theertha            |
+|    2 | anusree             |
+|    3 | anusree             |
+|    4 | anu                 |
+|    5 | robin zakaria       |
+|    6 | begam hazrath mehal |
+|    7 | kichu               |
+|    8 | sree                |
+|    9 | hari                |
+|   10 | rohith              |
++------+---------------------+
+11 rows in set (0.00 sec)
+
+mysql> delete from student where name=anusree,id=2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',id=2' at line 1
+mysql> delete from student where id=2;
+Query OK, 2 rows affected (0.15 sec)
+
+mysql> select * from student;
++------+---------------------+
+| id   | name                |
++------+---------------------+
+|    1 | kavya               |
+|    3 | anusree             |
+|    4 | anu                 |
+|    5 | robin zakaria       |
+|    6 | begam hazrath mehal |
+|    7 | kichu               |
+|    8 | sree                |
+|    9 | hari                |
+|   10 | rohith              |
++------+---------------------+
+9 rows in set (0.00 sec)
+
+mysql> alter table student add column age int,department varchar(15);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'department varchar(15)' at line 1
+mysql> alter table student add department varchar(15);
+Query OK, 0 rows affected (0.44 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+---------------------+------------+
+| id   | name                | department |
++------+---------------------+------------+
+|    1 | kavya               | NULL       |
+|    3 | anusree             | NULL       |
+|    4 | anu                 | NULL       |
+|    5 | robin zakaria       | NULL       |
+|    6 | begam hazrath mehal | NULL       |
+|    7 | kichu               | NULL       |
+|    8 | sree                | NULL       |
+|    9 | hari                | NULL       |
+|   10 | rohith              | NULL       |
++------+---------------------+------------+
+9 rows in set (0.00 sec)
+
+mysql> alter table student add age int;
+Query OK, 0 rows affected (0.27 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+---------------------+------------+------+
+| id   | name                | department | age  |
++------+---------------------+------------+------+
+|    1 | kavya               | NULL       | NULL |
+|    3 | anusree             | NULL       | NULL |
+|    4 | anu                 | NULL       | NULL |
+|    5 | robin zakaria       | NULL       | NULL |
+|    6 | begam hazrath mehal | NULL       | NULL |
+|    7 | kichu               | NULL       | NULL |
+|    8 | sree                | NULL       | NULL |
+|    9 | hari                | NULL       | NULL |
+|   10 | rohith              | NULL       | NULL |
++------+---------------------+------------+------+
+9 rows in set (0.00 sec)
+
+mysql> update student set department="mca" where id=1;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set department="bsc" where id=3;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set department="cs" where id=4;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set department="bca" where id=5;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set department="eee" where id=6;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set department="bba" where id=7;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set department="bcom" where id=8;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set department="ba" where id=9;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set department="bsc maths" where id=10;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++------+---------------------+------------+------+
+| id   | name                | department | age  |
++------+---------------------+------------+------+
+|    1 | kavya               | mca        | NULL |
+|    3 | anusree             | bsc        | NULL |
+|    4 | anu                 | cs         | NULL |
+|    5 | robin zakaria       | bca        | NULL |
+|    6 | begam hazrath mehal | eee        | NULL |
+|    7 | kichu               | bba        | NULL |
+|    8 | sree                | bcom       | NULL |
+|    9 | hari                | ba         | NULL |
+|   10 | rohith              | bsc maths  | NULL |
++------+---------------------+------------+------+
+9 rows in set (0.01 sec)
+
+mysql> update student set age=21 where id=1;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set age=22 where id=1;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set age=20 where id=1;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++------+---------------------+------------+------+
+| id   | name                | department | age  |
++------+---------------------+------------+------+
+|    1 | kavya               | mca        |   20 |
+|    3 | anusree             | bsc        | NULL |
+|    4 | anu                 | cs         | NULL |
+|    5 | robin zakaria       | bca        | NULL |
+|    6 | begam hazrath mehal | eee        | NULL |
+|    7 | kichu               | bba        | NULL |
+|    8 | sree                | bcom       | NULL |
+|    9 | hari                | ba         | NULL |
+|   10 | rohith              | bsc maths  | NULL |
++------+---------------------+------------+------+
+9 rows in set (0.00 sec)
+
+mysql> update student set age=21 where id=1;
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set age=22 where id=2;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> update student set age=22 where id=3;
+Query OK, 1 row affected (0.20 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set age=20 where id=4;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set age=29 where id=5;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set age=25 where id=6;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set age=24 where id=7;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set age=26\ where id=8;
+ERROR:
+Unknown command '\ '.
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\ where id=8' at line 1
+mysql> update student set age=26 where id=8;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set age=27 where id=9;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set age=19 where id=10;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++------+---------------------+------------+------+
+| id   | name                | department | age  |
++------+---------------------+------------+------+
+|    1 | kavya               | mca        |   21 |
+|    3 | anusree             | bsc        |   22 |
+|    4 | anu                 | cs         |   20 |
+|    5 | robin zakaria       | bca        |   29 |
+|    6 | begam hazrath mehal | eee        |   25 |
+|    7 | kichu               | bba        |   24 |
+|    8 | sree                | bcom       |   26 |
+|    9 | hari                | ba         |   27 |
+|   10 | rohith              | bsc maths  |   19 |
++------+---------------------+------------+------+
+9 rows in set (0.00 sec)
+
+mysql> select * from student where id=10;
++------+--------+------------+------+
+| id   | name   | department | age  |
++------+--------+------------+------+
+|   10 | rohith | bsc maths  |   19 |
++------+--------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where id>5;
++------+---------------------+------------+------+
+| id   | name                | department | age  |
++------+---------------------+------------+------+
+|    6 | begam hazrath mehal | eee        |   25 |
+|    7 | kichu               | bba        |   24 |
+|    8 | sree                | bcom       |   26 |
+|    9 | hari                | ba         |   27 |
+|   10 | rohith              | bsc maths  |   19 |
++------+---------------------+------------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student where id>=5;
++------+---------------------+------------+------+
+| id   | name                | department | age  |
++------+---------------------+------------+------+
+|    5 | robin zakaria       | bca        |   29 |
+|    6 | begam hazrath mehal | eee        |   25 |
+|    7 | kichu               | bba        |   24 |
+|    8 | sree                | bcom       |   26 |
+|    9 | hari                | ba         |   27 |
+|   10 | rohith              | bsc maths  |   19 |
++------+---------------------+------------+------+
+6 rows in set (0.00 sec)
+
+mysql> select * from student where id=7 and id=10;
+Empty set (0.00 sec)
+
+mysql> select * from student where id=7 between id=10;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=10' at line 1
+mysql> select * from student where id between 7 and 10;
++------+--------+------------+------+
+| id   | name   | department | age  |
++------+--------+------------+------+
+|    7 | kichu  | bba        |   24 |
+|    8 | sree   | bcom       |   26 |
+|    9 | hari   | ba         |   27 |
+|   10 | rohith | bsc maths  |   19 |
++------+--------+------------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student where name like "k%";
++------+-------+------------+------+
+| id   | name  | department | age  |
++------+-------+------------+------+
+|    1 | kavya | mca        |   21 |
+|    7 | kichu | bba        |   24 |
++------+-------+------------+------+
+2 rows in set (0.00 sec)
+
+mysql> select name from student where name like "k%";
++-------+
+| name  |
++-------+
+| kavya |
+| kichu |
++-------+
+2 rows in set (0.00 sec)
+
+mysql> select name from student where name like "-a%";
+Empty set (0.00 sec)
+
+mysql> select name from student where name like "_a%";
++-------+
+| name  |
++-------+
+| kavya |
+| hari  |
++-------+
+2 rows in set (0.00 sec)
+
+mysql>

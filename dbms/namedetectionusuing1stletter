@@ -1,0 +1,4 @@
+> db.new.find({name: {$regex:"k"}})
+{ "_id" : ObjectId("6622294e555411bf8bf00709"), "name" : "kavya" }
+{ "_id" : ObjectId("66222959555411bf8bf0070a"), "name" : "kiran" }
+{ "_id" : ObjectId("662229c5555411bf8bf0070f"), "name" : "dasvika" }

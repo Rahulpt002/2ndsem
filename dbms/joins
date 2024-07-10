@@ -1,0 +1,224 @@
+mysql: [Warning] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe: ignoring option '--no-beep' due to invalid value ''.
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.36 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databeses;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databeses' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| reader             |
+| sakila             |
+| sample             |
+| sys                |
++--------------------+
+7 rows in set (2.78 sec)
+
+mysql> show tables;
+ERROR 1046 (3D000): No database selected
+mysql> show table_name;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table_name' at line 1
+mysql> use sample;
+Database changed
+mysql> select * from employee;
++------+----------+------------+------------------+------------------+----------+
+| ssn  | name     | department | project_name     | project_location | Salary   |
++------+----------+------------+------------------+------------------+----------+
+| A01  | Kavya    | Mca        | Antiragging      | Kozhikode        | 23457.00 |
+| A02  | Anusree  | Bca        | Antiragging      | Kozhikode        | 53930.00 |
+| A03  | theertha | Bca        | Antiragging      | Kozhikode        | 28465.00 |
+| A04  | Kiran    | Mech       | Solarwaterheater | Kannur           | 34567.00 |
+| A05  | Rohith   | Mech       | Solarwaterheater | Kozhikode        | 74566.00 |
+| A06  | Nihal    | Finance    | Mutualfund       | Kozhikode        | 17457.00 |
+| A07  | Aman     | Marketing  | publicrelation   | Kozhikode        | 56737.00 |
+| A08  | Adhith   | Marketing  | innnmarketing    | Malappuram       | 15894.00 |
+| A09  | Adwaith  | Finance    | fund             | delhi            | 22354.00 |
+| A10  | Adhii    | hr         | development      | pune             | 22222.00 |
++------+----------+------------+------------------+------------------+----------+
+10 rows in set (0.02 sec)
+
+mysql> show Tables;
++------------------+
+| Tables_in_sample |
++------------------+
+| employee         |
++------------------+
+1 row in set (0.07 sec)
+
+mysql> create table order(oder_id int,order_name varchar(20),customer_id int,customer_name varchar(20),order_date date
+    -> create table order(oder_id varchar(20,order_name varchar(20),customer_id int,customer_name varchar(20),order_date date());
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(oder_id int,order_name varchar(20),customer_id int,customer_name varchar(2' at line 1
+mysql> create table order(oder_id varchar(20),order_name varchar(20),customer_id int,customer_name varchar(20),order_date date(YYYY-MM-DD));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(oder_id varchar(20),order_name varchar(20),customer_id int,customer_name v' at line 1
+mysql> create table order(oder_id varchar(20),order_name varchar(20),customer_id int,customer_name varchar(20),order_date date(15));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(oder_id varchar(20),order_name varchar(20),customer_id int,customer_name v' at line 1
+mysql> create table order(oder_id varchar(20),order_name varchar(20),customer_id int,customer_name varchar(20),order_date date);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(oder_id varchar(20),order_name varchar(20),customer_id int,customer_name v' at line 1
+mysql> create table order(oder_id varchar(20),order_name varchar(20),customer_id int,customer_name varchar(20),order_date date());
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(oder_id varchar(20),order_name varchar(20),customer_id int,customer_name v' at line 1
+mysql> create table order(oder_id varchar(20),order_name varchar(20),customer_id int,customer_name varchar(20),order_date date);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(oder_id varchar(20),order_name varchar(20),customer_id int,customer_name v' at line 1
+mysql> create table orders(order_id varchar(20),order_name varchar(20),customer_id int,customer_name varchar(20),order_date date);
+Query OK, 0 rows affected (0.55 sec)
+
+mysql> insert into orders values("A01","dresses","c01","kavya","29-09-2024");
+ERROR 1366 (HY000): Incorrect integer value: 'c01' for column 'customer_id' at row 1
+mysql> insert into orders values("A01","dresses","c01","kavya","2024-09-29");
+ERROR 1366 (HY000): Incorrect integer value: 'c01' for column 'customer_id' at row 1
+mysql> insert into orders values("A01","dresses","01","kavya","2024-09-29");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into orders values("A02","books","02","kavya","2023-02-21");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into orders values("A03","books","03","theertha","2024-02-09");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into orders values("A04","watch","04","anusree","2023-08-16");
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into orders values("A05","smartphone","05","kiran","2024-03-28");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from orders;
++----------+------------+-------------+---------------+------------+
+| order_id | order_name | customer_id | customer_name | order_date |
++----------+------------+-------------+---------------+------------+
+| A01      | dresses    |           1 | kavya         | 2024-09-29 |
+| A02      | books      |           2 | kavya         | 2023-02-21 |
+| A03      | books      |           3 | theertha      | 2024-02-09 |
+| A04      | watch      |           4 | anusree       | 2023-08-16 |
+| A05      | smartphone |           5 | kiran         | 2024-03-28 |
++----------+------------+-------------+---------------+------------+
+5 rows in set (0.10 sec)
+
+mysql> create table products(product_id varchar(20),product_name varchar(20),order_id varchar(10));
+Query OK, 0 rows affected (0.52 sec)
+
+mysql> insert into products("p01","dresses","A01");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"p01","dresses","A01")' at line 1
+mysql> insert into products("P01","dresses","A01");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"P01","dresses","A01")' at line 1
+mysql> insert into products values("P01","dresses","A01");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into products values("P02","books","A02");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into products values("P03","books","A03");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into products values("P04","watch","A04");
+Query OK, 1 row affected (0.26 sec)
+
+mysql> insert into products values("P05","smartphone","A05");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select * from products;
++------------+--------------+----------+
+| product_id | product_name | order_id |
++------------+--------------+----------+
+| P01        | dresses      | A01      |
+| P02        | books        | A02      |
+| P03        | books        | A03      |
+| P04        | watch        | A04      |
+| P05        | smartphone   | A05      |
++------------+--------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select orders.order_id,order.order_name,products.product_id from orders join products on orders.order_id=products.order_id;
+ERROR 1054 (42S22): Unknown column 'order.order_name' in 'field list'
+mysql> select orders.order_id,orders.order_name,products.product_id from orders join products on orders.order_id=products.order_id;
++----------+------------+------------+
+| order_id | order_name | product_id |
++----------+------------+------------+
+| A01      | dresses    | P01        |
+| A02      | books      | P02        |
+| A03      | books      | P03        |
+| A04      | watch      | P04        |
+| A05      | smartphone | P05        |
++----------+------------+------------+
+5 rows in set (0.04 sec)
+
+mysql> select orders.order_id,orders.order_name,products.product_id,products.product_name from orders join products on orders.order_id=products.order_id;
++----------+------------+------------+--------------+
+| order_id | order_name | product_id | product_name |
++----------+------------+------------+--------------+
+| A01      | dresses    | P01        | dresses      |
+| A02      | books      | P02        | books        |
+| A03      | books      | P03        | books        |
+| A04      | watch      | P04        | watch        |
+| A05      | smartphone | P05        | smartphone   |
++----------+------------+------------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> select * orders;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'orders' at line 1
+mysql> select * from orders;
++----------+------------+-------------+---------------+------------+
+| order_id | order_name | customer_id | customer_name | order_date |
++----------+------------+-------------+---------------+------------+
+| A01      | dresses    |           1 | kavya         | 2024-09-29 |
+| A02      | books      |           2 | kavya         | 2023-02-21 |
+| A03      | books      |           3 | theertha      | 2024-02-09 |
+| A04      | watch      |           4 | anusree       | 2023-08-16 |
+| A05      | smartphone |           5 | kiran         | 2024-03-28 |
++----------+------------+-------------+---------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from products;
++------------+--------------+----------+
+| product_id | product_name | order_id |
++------------+--------------+----------+
+| P01        | dresses      | A01      |
+| P02        | books        | A02      |
+| P03        | books        | A03      |
+| P04        | watch        | A04      |
+| P05        | smartphone   | A05      |
++------------+--------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> ALTER TABLE Persons
+    -> ADD PRIMARY KEY (ID);ADD PRIMARY KEY (ID);
+ERROR 1146 (42S02): Table 'sample.persons' doesn't exist
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ADD PRIMARY KEY (ID)' at line 1
+mysql> ADD PRIMARY KEY (ID);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ADD PRIMARY KEY (ID)' at line 1
+mysql> alter table employee add primary key(ssn);
+Query OK, 0 rows affected (1.27 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++-----+----------+------------+------------------+------------------+----------+
+| ssn | name     | department | project_name     | project_location | Salary   |
++-----+----------+------------+------------------+------------------+----------+
+| A01 | Kavya    | Mca        | Antiragging      | Kozhikode        | 23457.00 |
+| A02 | Anusree  | Bca        | Antiragging      | Kozhikode        | 53930.00 |
+| A03 | theertha | Bca        | Antiragging      | Kozhikode        | 28465.00 |
+| A04 | Kiran    | Mech       | Solarwaterheater | Kannur           | 34567.00 |
+| A05 | Rohith   | Mech       | Solarwaterheater | Kozhikode        | 74566.00 |
+| A06 | Nihal    | Finance    | Mutualfund       | Kozhikode        | 17457.00 |
+| A07 | Aman     | Marketing  | publicrelation   | Kozhikode        | 56737.00 |
+| A08 | Adhith   | Marketing  | innnmarketing    | Malappuram       | 15894.00 |
+| A09 | Adwaith  | Finance    | fund             | delhi            | 22354.00 |
+| A10 | Adhii    | hr         | development      | pune             | 22222.00 |
++-----+----------+------------+------------------+------------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> select orders.order_id,orders.order_name,products.product_id,products.product_name from orders leftjoin products on orders.order_id=products.order_id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'products on orders.order_id=products.order_id' at line 1
+mysql> select orders.order_id,orders.order_name,products.product_id,products.product_name from orders leftjoin products on orders.order_id=products.order_id;

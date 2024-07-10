@@ -1,0 +1,23 @@
+mysql> select order_id,customer_name from orders o where exists(select * from products p where p.order_id=o.order_id);
++----------+---------------+
+| order_id | customer_name |
++----------+---------------+
+| A01      | kavya         |
+| A02      | kavya         |
+| A03      | theertha      |
+| A04      | anusree       |
+| A05      | kiran         |
++----------+---------------+
+5 rows in set (0.08 sec)
+
+mysql> select staff_id,f_name from faculty f where exists(select * from department d where d.staff_id=f.staff_id);
++----------+--------+
+| staff_id | f_name |
++----------+--------+
+| f1       | kavya  |
+| f2       | fidha  |
+| f3       | hasna  |
+| f4       | nafiya |
+| f5       | ajisa  |
++----------+--------+
+5 rows in set (0.02 sec)

@@ -1,0 +1,44 @@
+
+> db.new.find().sort({name:-1})
+{ "_id" : ObjectId("662229fe555411bf8bf00711"), "name" : "usha" }
+{ "_id" : ObjectId("66222a20555411bf8bf00712"), "name" : "theertha" }
+{ "_id" : ObjectId("662229bb555411bf8bf0070e"), "name" : "rohith" }
+{ "_id" : ObjectId("662229cf555411bf8bf00710"), "name" : "nihal" }
+{ "_id" : ObjectId("66222ae1555411bf8bf00714"), "name" : "nafiya", "age" : 22 }
+{ "_id" : ObjectId("662236e1555411bf8bf00719"), "name" : "nafiya", "age" : 22 }
+{ "_id" : ObjectId("66223c49555411bf8bf0071e"), "name" : "nafiya", "age" : 22 }
+{ "_id" : ObjectId("66222959555411bf8bf0070a"), "name" : "kiran" }
+{ "_id" : ObjectId("6622294e555411bf8bf00709"), "name" : "kavya" }
+{ "_id" : ObjectId("66222b54555411bf8bf00717"), "name" : "hasna", "age" : 21 }
+{ "_id" : ObjectId("662237b1555411bf8bf0071c"), "name" : "hasna", "age" : 21 }
+{ "_id" : ObjectId("66222b38555411bf8bf00716"), "name" : "hadiya", "age" : 23 }
+{ "_id" : ObjectId("66223781555411bf8bf0071b"), "name" : "hadhiya", "age" : 23 }
+{ "_id" : ObjectId("66222a7d555411bf8bf00713"), "name" : "fidha", "age" : 21 }
+{ "_id" : ObjectId("662236d6555411bf8bf00718"), "name" : "fidha", "age" : 21 }
+{ "_id" : ObjectId("66223c49555411bf8bf0071d"), "name" : "fidha", "age" : 21 }
+{ "_id" : ObjectId("662229c5555411bf8bf0070f"), "name" : "dasvika" }
+{ "_id" : ObjectId("662229a1555411bf8bf0070d"), "name" : "aman" }
+{ "_id" : ObjectId("66222995555411bf8bf0070c"), "name" : "adwaith" }
+{ "_id" : ObjectId("6622298d555411bf8bf0070b"), "name" : "adhi" }
+> db.new.find().sort({name:1})
+{ "_id" : ObjectId("6622298d555411bf8bf0070b"), "name" : "adhi" }
+{ "_id" : ObjectId("66222995555411bf8bf0070c"), "name" : "adwaith" }
+{ "_id" : ObjectId("662229a1555411bf8bf0070d"), "name" : "aman" }
+{ "_id" : ObjectId("662229c5555411bf8bf0070f"), "name" : "dasvika" }
+{ "_id" : ObjectId("66222a7d555411bf8bf00713"), "name" : "fidha", "age" : 21 }
+{ "_id" : ObjectId("662236d6555411bf8bf00718"), "name" : "fidha", "age" : 21 }
+{ "_id" : ObjectId("66223c49555411bf8bf0071d"), "name" : "fidha", "age" : 21 }
+{ "_id" : ObjectId("66223781555411bf8bf0071b"), "name" : "hadhiya", "age" : 23 }
+{ "_id" : ObjectId("66222b38555411bf8bf00716"), "name" : "hadiya", "age" : 23 }
+{ "_id" : ObjectId("66222b54555411bf8bf00717"), "name" : "hasna", "age" : 21 }
+{ "_id" : ObjectId("662237b1555411bf8bf0071c"), "name" : "hasna", "age" : 21 }
+{ "_id" : ObjectId("6622294e555411bf8bf00709"), "name" : "kavya" }
+{ "_id" : ObjectId("66222959555411bf8bf0070a"), "name" : "kiran" }
+{ "_id" : ObjectId("66222ae1555411bf8bf00714"), "name" : "nafiya", "age" : 22 }
+{ "_id" : ObjectId("662236e1555411bf8bf00719"), "name" : "nafiya", "age" : 22 }
+{ "_id" : ObjectId("66223c49555411bf8bf0071e"), "name" : "nafiya", "age" : 22 }
+{ "_id" : ObjectId("662229cf555411bf8bf00710"), "name" : "nihal" }
+{ "_id" : ObjectId("662229bb555411bf8bf0070e"), "name" : "rohith" }
+{ "_id" : ObjectId("66222a20555411bf8bf00712"), "name" : "theertha" }
+{ "_id" : ObjectId("662229fe555411bf8bf00711"), "name" : "usha" }
+>

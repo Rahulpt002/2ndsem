@@ -1,0 +1,7 @@
+ var bulk=db.new.initializeUnorderedBulkOp();
+> bulk.insert({name:"kavya",age:20});
+> bulk.insert({name:"fidha",age:20});
+> bulk.insert({name:"hasna",age:21});
+> bulk.insert({name:"nafiya",age:22});
+> bulk.insert({name:"nihal",age:21});
+> bulk.execute();

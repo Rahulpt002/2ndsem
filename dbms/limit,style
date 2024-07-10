@@ -1,0 +1,4 @@
+> db.new.find().sort({name:-1}).limit(2).forEach(printjson)
+{ "_id" : ObjectId("662229fe555411bf8bf00711"), "name" : "usha" }
+{ "_id" : ObjectId("66222a20555411bf8bf00712"), "name" : "theertha" }
+>

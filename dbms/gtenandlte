@@ -1,0 +1,45 @@
+> db.new.find({age:{$lte:21}}).pretty()
+{
+        "_id" : ObjectId("66222a7d555411bf8bf00713"),
+        "name" : "fidha",
+        "age" : 21
+}
+{
+        "_id" : ObjectId("66222af7555411bf8bf00715"),
+        "name" : "ajisa",
+        "age" : 20
+}
+{
+        "_id" : ObjectId("66222b54555411bf8bf00717"),
+        "name" : "hasna",
+        "age" : 21
+}
+> db.new.find({age:{$lte:20}}).pretty()
+{
+        "_id" : ObjectId("66222af7555411bf8bf00715"),
+        "name" : "ajisa",
+        "age" : 20
+}
+>
+> db.new.find({age:{$gte:21}}).pretty()
+{
+        "_id" : ObjectId("66222a7d555411bf8bf00713"),
+        "name" : "fidha",
+        "age" : 21
+}
+{
+        "_id" : ObjectId("66222ae1555411bf8bf00714"),
+        "name" : "nafiya",
+        "age" : 22
+}
+{
+        "_id" : ObjectId("66222b38555411bf8bf00716"),
+        "name" : "hadhiya",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("66222b54555411bf8bf00717"),
+        "name" : "hasna",
+        "age" : 21
+}
+>

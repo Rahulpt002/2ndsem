@@ -1,0 +1,7 @@
+> db.new.find({name:{$regex:/fi/}})
+{ "_id" : ObjectId("66222a7d555411bf8bf00713"), "name" : "fidha", "age" : 21 }
+{ "_id" : ObjectId("66222ae1555411bf8bf00714"), "name" : "nafiya", "age" : 22 }
+{ "_id" : ObjectId("662236d6555411bf8bf00718"), "name" : "fidha", "age" : 21 }
+{ "_id" : ObjectId("662236e1555411bf8bf00719"), "name" : "nafiya", "age" : 22 }
+{ "_id" : ObjectId("66223c49555411bf8bf0071d"), "name" : "fidha", "age" : 21 }
+{ "_id" : ObjectId("66223c49555411bf8bf0071e"), "name" : "nafiya", "age" : 22 }
